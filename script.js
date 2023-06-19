@@ -17,7 +17,7 @@ const CAPITALIZE_WORDS = () => {
 CAPITALIZE_WORDS();
 
 const VALIDATE_VOWEL = () => {
-    const INPUT = prompt('Please enter a vowel:');
+    const INPUT = prompt('Please enter one vowel:');
     const VOWELS = ['a', 'e', 'i', 'o', 'u'];
 
     if (VOWELS.includes(INPUT.toLowerCase())) {
@@ -25,7 +25,7 @@ const VALIDATE_VOWEL = () => {
         VOWEL.textContent = `You have entered the vowel ${INPUT.toUpperCase()}.`;
         document.body.appendChild(VOWEL);
     } else {
-        alert('Please enter a vowel.');
+        alert('Please enter one vowel.');
         VALIDATE_VOWEL();
     }
 };
