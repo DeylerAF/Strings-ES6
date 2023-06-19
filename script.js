@@ -1,11 +1,18 @@
 /* *1. Escribir un programa que pida al usuario que introduzca una frase en la consola y una vocal, y después muestre por pantalla la misma frase pero con la vocal introducida en mayúscula. */
 
 const CAPITALIZE_WORDS = () => {
-    let str = prompt("Please enter your name:")
-    const NAME = str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-    const GREETING = document.createElement('h1');
-    GREETING.textContent = `Hello, ${NAME}. I hope you're having a great day!`;
-    document.body.appendChild(GREETING);
+    let str = prompt("Please enter your name:");
+    const EMPTY = /^\s*$/;
+
+    if (EMPTY.test(str)) {
+        alert("Please enter your name.");
+        CAPITALIZE_WORDS();
+    } else {
+        const NAME = str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+        const GREETING = document.createElement('h1');
+        GREETING.textContent = `Hello, ${NAME}. I hope you're having a great day!`;
+        document.body.appendChild(GREETING);
+    }
 };
 CAPITALIZE_WORDS();
 
@@ -50,14 +57,21 @@ const IS_PALINDROME = () => {
     const SPLITTED = INPUT.split('')
     const REVERSED = SPLITTED.reverse()
     const JOINED = REVERSED.join('')
-    if (INPUT == JOINED) {
-        const PHRASE = document.createElement('h1');
-        PHRASE.textContent = `${INPUT} reversed is ${JOINED} and is a palindrome.`;
-        document.body.appendChild(PHRASE);
+    const EMPTY = /^\s*$/;
+
+    if (EMPTY.test(str)) {
+        alert("Please enter a phrase.");
+        IS_PALINDROME();
     } else {
-        const PHRASE = document.createElement('h1');
-        PHRASE.textContent = `${INPUT} reversed is ${JOINED} and is not a palindrome.`;
-        document.body.appendChild(PHRASE);
+        if (INPUT == JOINED) {
+            const PHRASE = document.createElement('h1');
+            PHRASE.textContent = `${INPUT} reversed is ${JOINED} and is a palindrome.`;
+            document.body.appendChild(PHRASE);
+        } else {
+            const PHRASE = document.createElement('h1');
+            PHRASE.textContent = `${INPUT} reversed is ${JOINED} and is not a palindrome.`;
+            document.body.appendChild(PHRASE);
+        }
     }
 };
 IS_PALINDROME();
